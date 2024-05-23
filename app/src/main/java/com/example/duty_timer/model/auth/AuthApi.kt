@@ -5,6 +5,7 @@ import com.example.duty_timer.model.auth.entities.SignInResponseEntity
 import com.example.duty_timer.model.auth.entities.SignUpRequestEntity
 import retrofit2.http.POST
 import retrofit2.http.Body
+import retrofit2.http.Header
 
 interface AuthApi {
     @POST("/auth/sign-in")
@@ -12,4 +13,7 @@ interface AuthApi {
 
     @POST("/auth/sign-up")
     suspend fun signUp(@Body body: SignUpRequestEntity): SignInResponseEntity
+
+    @POST("/auth/log-out")
+    suspend fun logOut(@Header("Authorization") token: String)
 }

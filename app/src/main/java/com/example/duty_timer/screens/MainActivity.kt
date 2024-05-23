@@ -1,5 +1,6 @@
 package com.example.duty_timer.screens
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
@@ -16,6 +17,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
+
+        val intent = Intent()
 
         val navHost = supportFragmentManager.findFragmentById(R.id.mainGraphContainer) as NavHostFragment
         val navController = navHost.navController

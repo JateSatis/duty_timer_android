@@ -22,4 +22,10 @@ class AuthRepository(
 
         appSettings.setCurrentToken(token)
     }
+
+    suspend fun logOut() {
+        val token = appSettings.getCurrentToken() ?: return
+        appSettings.setCurrentToken(null);
+        authSource.logOut(token)
+    }
 }

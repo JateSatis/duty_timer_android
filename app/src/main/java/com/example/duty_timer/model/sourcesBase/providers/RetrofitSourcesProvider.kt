@@ -1,9 +1,13 @@
 package com.example.duty_timer.model.sourcesBase.providers
 
 import com.example.duty_timer.globals.Consts
+import com.example.duty_timer.model.userInfo.RetrofitUserInfoSource
+import com.example.duty_timer.model.userInfo.UserInfoSource
 import com.example.duty_timer.model.auth.AuthSource
 import com.example.duty_timer.model.auth.RetrofitAuthSource
 import com.example.duty_timer.model.sourcesBase.RetrofitConfig
+import com.example.duty_timer.model.timer.RetrofitTimerSource
+import com.example.duty_timer.model.timer.TimerSource
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.Interceptor
@@ -15,20 +19,25 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 object RetrofitSourcesProvider : SourcesProvider {
     private val config: RetrofitConfig by lazy {
         val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
-        val config = RetrofitConfig(
+        return@lazy RetrofitConfig(
             retrofit = createRetrofit(moshi),
             moshi = moshi
         )
-        return@lazy config
     }
 
-    override fun getAuthSource(): AuthSource {
-        return RetrofitAuthSource(config)
+    override val authSource by lazy {
+        RetrofitAuthSource(config)
+    }
+    override val userInfoSource by lazy {
+        RetrofitUserInfoSource(config)
+    }
+    override val timerSource by lazy {
+        RetrofitTimerSource(config)
     }
 
     private fun createRetrofit(moshi: Moshi): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(Consts.BASE_URL)
+            .baseUrl(if (Consts.production) Consts.BASE_PRODUCTION_URL else Consts.BASE_TEST_URL)
             .client(createOkHttpClient())
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()

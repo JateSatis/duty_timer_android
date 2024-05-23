@@ -31,4 +31,8 @@ class RetrofitAuthSource(config: RetrofitConfig) : AuthSource, BaseRetrofitSourc
         accountsApi.signUp(signUpRequestEntity).token
     }
 
+    override suspend fun logOut(token: String) {
+        accountsApi.logOut(token)
+    }
+
 }

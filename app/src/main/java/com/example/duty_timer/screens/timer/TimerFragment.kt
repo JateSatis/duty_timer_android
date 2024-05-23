@@ -9,7 +9,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.duty_timer.R
 import com.example.duty_timer.databinding.FragmentTimerBinding
 import com.example.duty_timer.screens.MainActivity
+import com.example.duty_timer.utils.SuccessTask
 import com.example.duty_timer.utils.findTopNavController
+import com.example.duty_timer.utils.viewModelCreator
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Dispatchers
@@ -22,9 +24,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Header
+import java.util.Date
 
 class TimerFragment : Fragment() {
     private lateinit var binding: FragmentTimerBinding
+    private val viewModel by viewModelCreator { TimerViewModel() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,7 +41,18 @@ class TimerFragment : Fragment() {
 
         binding.launchSettingsScreen.setOnClickListener { findTopNavController().navigate(R.id.action_tabsFragment_to_settingsFragment) }
 
+        binding.launchAccountScreen.setOnClickListener { findTopNavController().navigate(R.id.action_tabsFragment_to_accountFragment) }
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.getTimer()
+
+        viewModel.percentage.observe(viewLifecycleOwner) {
+            binding.textView.text = "$it%"
+        }
     }
 }

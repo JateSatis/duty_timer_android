@@ -5,6 +5,7 @@ import com.example.duty_timer.model.auth.AuthRepository
 import com.example.duty_timer.appSettings.AppSettings
 import com.example.duty_timer.appSettings.SharedPreferencesAppSettings
 import com.example.duty_timer.model.RepositoriesProvider
+import com.example.duty_timer.model.userInfo.UserInfoRepository
 
 object Singletons {
 
@@ -12,8 +13,16 @@ object Singletons {
 
     // --- repositories
 
-    val authRepository: AuthRepository by lazy {
-        RepositoriesProvider.getAuthRepository()
+    val authRepository by lazy {
+        RepositoriesProvider.authRepository
+    }
+
+    val userInfoRepository by lazy {
+        RepositoriesProvider.userInfoRepository
+    }
+
+    val timerRepository by lazy {
+        RepositoriesProvider.timerRepository
     }
 
     // --- app settings

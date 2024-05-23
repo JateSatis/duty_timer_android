@@ -53,7 +53,6 @@ class TabsFragment : Fragment() {
     }
 
     private fun navigateToTab(tabId: Int) {
-        Log.d("TABS", tabsCurrentFragmentMap[tabId].toString())
         navController.navigate(tabsCurrentFragmentMap[tabId] ?: R.id.timerFragment)
     }
 
