@@ -1,4 +1,4 @@
-package com.example.duty_timer.screens.singIn
+package com.example.duty_timer.screens.signIn
 
 import android.os.Bundle
 import android.view.LayoutInflater

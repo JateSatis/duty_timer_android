@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.duty_timer.screens.singIn.SignInFragment">
+    tools:context="com.example.duty_timer.screens.signIn.SignInFragment">
 
     <TextView
         android:id="@+id/signInTitle"

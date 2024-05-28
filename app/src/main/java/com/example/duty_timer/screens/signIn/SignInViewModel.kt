@@ -1,4 +1,4 @@
-package com.example.duty_timer.screens.singIn
+package com.example.duty_timer.screens.signIn
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

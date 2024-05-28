@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.duty_timer.screens.singIn.SignInFragment"
+        android:name="com.example.duty_timer.screens.signIn.SignInFragment"
         android:label="fragment_sign_in"
         tools:layout="@layout/fragment_sign_in" >
         <action
