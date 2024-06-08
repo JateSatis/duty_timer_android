@@ -21,7 +21,7 @@ class TabsFragment : Fragment() {
     private val tabsCurrentFragmentMap = mutableMapOf(
         R.id.timer_menu_tab to R.id.timerFragment,
         R.id.events_menu_tab to R.id.eventsFragment,
-        R.id.chatrooms_menu_tab to R.id.chatroomsFragment
+//        R.id.chatrooms_menu_tab to R.id.chatroomsFragment
     )
 
     override fun onCreateView(
@@ -68,7 +68,7 @@ class TabsFragment : Fragment() {
         return when(destinationId) {
             in arrayOf(R.id.timerFragment, R.id.addFriendFragment) -> R.id.timer_menu_tab
             in arrayOf(R.id.eventsFragment, R.id.addEventFragment) -> R.id.events_menu_tab
-            in arrayOf(R.id.chatroomsFragment) -> R.id.chatrooms_menu_tab
+//            in arrayOf(R.id.chatroomsFragment) -> R.id.chatrooms_menu_tab
             else -> R.id.timer_menu_tab
         }
     }

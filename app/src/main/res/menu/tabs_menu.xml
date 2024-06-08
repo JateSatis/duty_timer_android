@@ -3,8 +3,8 @@
 
     <item android:id="@+id/timer_menu_tab" android:icon="@drawable/ic_timer_tab"
         android:title="Таймер" />
-    <item android:id="@+id/chatrooms_menu_tab" android:icon="@drawable/ic_chatrooms_tab"
-        android:title="Мессенджер"/>
+<!--    <item android:id="@+id/chatrooms_menu_tab" android:icon="@drawable/ic_chatrooms_tab"-->
+<!--        android:title="Мессенджер"/>-->
     <item android:id="@+id/events_menu_tab" android:icon="@drawable/ic_events_tab"
         android:title="События"/>
 

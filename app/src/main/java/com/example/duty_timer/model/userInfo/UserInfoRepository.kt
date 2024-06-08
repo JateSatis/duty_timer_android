@@ -18,10 +18,8 @@ class UserInfoRepository(
     private val _userInfoFlow = MutableStateFlow<ResultTask<UserInfo>>(EmptyTask())
     val userInfoFlow = _userInfoFlow
 
-    private val token = appSettings.getCurrentToken()
-
     suspend fun getUserInfo() {
-        if (token == null) return
+        val token = appSettings.getCurrentToken() ?: return
         _userInfoFlow.value = PendingTask();
         val userInfo = try {
             userInfoSource.getUserInfo(token)

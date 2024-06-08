@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.duty_timer.appSettings.entities.Timer
 import com.example.duty_timer.globals.Singletons
+import com.example.duty_timer.model.auth.AuthRepository
 import com.example.duty_timer.model.timer.TimerRepository
 import com.example.duty_timer.utils.MutableLiveResult
 import com.example.duty_timer.utils.SuccessTask
@@ -16,7 +17,7 @@ import java.util.Date
 import kotlin.math.roundToLong
 
 class TimerViewModel(
-    private val timerRepository: TimerRepository = Singletons.timerRepository
+    private val timerRepository: TimerRepository = Singletons.timerRepository,
 ) : ViewModel() {
     private val _timerResult = MutableLiveResult<Timer>()
     val timerResult = _timerResult
@@ -31,12 +32,14 @@ class TimerViewModel(
 
     init {
         viewModelScope.launch {
-            timerRepository.timerFlow.collect {
+            timerRepository.timerResultFlow.collect {
                 _timerResult.value = it
 
                 if (fixedRateTimer == null && it is SuccessTask) {
                     val timer = it.value;
                     val currentTime = Date()
+
+                    Log.d("timer", "${timer.startTime} ${timer.endTime}")
 
                     val totalDuration = timer.endTime - timer.startTime
                     val passedDuration = currentTime.time - timer.startTime
@@ -72,5 +75,10 @@ class TimerViewModel(
         viewModelScope.launch {
             timerRepository.connectToTimer(timerId)
         }
+    }
+
+    fun clearFixedRateTimer() {
+        fixedRateTimer?.cancel()
+        fixedRateTimer = null
     }
 }

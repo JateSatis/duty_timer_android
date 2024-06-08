@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.duty_timer.screens.editTimer.EditTimerFragment"
+    android:background="@color/white">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/editTimerGoBack"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        android:padding="20dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/go_back_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/editTimerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Изменить таймер"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:fontFamily="@font/benzin_extrabold"
+        android:layout_marginTop="75dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/editTimerSplitLine"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/dark_brown"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/editTimerTitle"
+        app:layout_constraintEnd_toEndOf="@id/editTimerTitle"
+        app:layout_constraintTop_toBottomOf="@id/editTimerTitle" />
+
+    <FrameLayout
+        android:id="@+id/editTimerTimeSelectBackground"
+        android:layout_width="330dp"
+        android:layout_height="130dp"
+        android:background="@drawable/edit_text_background"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTimerSplitLine" />
+
+    <TextView
+        android:id="@+id/editTimerStartTimeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Дата призыва"
+        android:textSize="17dp"
+        android:textColor="@color/opaque_black"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="14dp"
+        app:layout_constraintTop_toTopOf="@id/editTimerTimeSelectBackground"
+        app:layout_constraintStart_toStartOf="@id/editTimerTimeSelectBackground"/>
+
+    <TextView
+        android:id="@+id/editTimerStartTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColor="@color/opaque_black"
+        android:text="Start time"
+        android:textSize="17sp"
+        android:layout_marginEnd="14dp"
+        app:layout_constraintEnd_toEndOf="@+id/editTimerTimeSelectBackground"
+        app:layout_constraintTop_toTopOf="@+id/editTimerStartTimeTitle" />
+
+    <View
+        android:id="@+id/editTimerDateSelectSplitLineTop"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="14dp"
+        android:background="@color/dark_brown"
+        app:layout_constraintEnd_toEndOf="@+id/editTimerTimeSelectBackground"
+        app:layout_constraintStart_toStartOf="@+id/editTimerStartTimeTitle"
+        app:layout_constraintTop_toBottomOf="@+id/editTimerStartTimeTitle" />
+
+    <TextView
+        android:id="@+id/editTimerEndTimeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:text="Дата дембеля"
+        android:textColor="@color/opaque_black"
+        android:layout_marginBottom="40dp"
+        android:layout_marginStart="14dp"
+        app:layout_constraintBottom_toBottomOf="@id/editTimerTimeSelectBackground"
+        app:layout_constraintStart_toStartOf="@id/editTimerTimeSelectBackground"/>
+
+    <TextView
+        android:id="@+id/editTimerEndTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColor="@color/opaque_black"
+        android:text="End time"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/editTimerStartTime"
+        app:layout_constraintTop_toTopOf="@+id/editTimerEndTimeTitle" />
+
+    <View
+        android:id="@+id/newSoldierDateSelectSplitLineBottom"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="14dp"
+        android:background="@color/dark_brown"
+        app:layout_constraintEnd_toEndOf="@+id/editTimerEndTime"
+        app:layout_constraintStart_toStartOf="@+id/editTimerEndTimeTitle"
+        app:layout_constraintTop_toBottomOf="@+id/editTimerEndTimeTitle" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/editTimerSaveButton"
+        android:background="@drawable/thick_button_background"
+        android:textColor="@color/bone"
+        android:fontFamily="@font/benzin_extrabold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:padding="10dp"
+        android:text="Сохранить"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTimerTimeSelectBackground" />
+
+    <ProgressBar
+        android:id="@+id/editTimerProgressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        android:visibility="invisible"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

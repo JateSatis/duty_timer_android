@@ -18,20 +18,18 @@ class RetrofitAuthSource(config: RetrofitConfig) : AuthSource, BaseRetrofitSourc
         email: String,
         password: String,
         name: String,
-        surname: String,
-        nickname: String
+        nickname: String,
     ): String = wrapRetrofitExceptions {
         val signUpRequestEntity = SignUpRequestEntity(
             email,
             password,
             name,
-            surname,
-            nickname
+            nickname,
         )
         accountsApi.signUp(signUpRequestEntity).token
     }
 
-    override suspend fun logOut(token: String) {
+    override suspend fun logOut(token: String) = wrapRetrofitExceptions {
         accountsApi.logOut(token)
     }
 

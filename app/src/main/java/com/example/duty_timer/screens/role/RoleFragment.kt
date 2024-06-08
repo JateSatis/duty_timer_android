@@ -19,8 +19,8 @@ class RoleFragment : Fragment() {
     ): View {
         binding = FragmentRoleBinding.inflate(inflater, container, false)
 
-        binding.skipAccountSetup.setOnClickListener { findNavController().navigate(R.id.action_roleFragment_to_tabsFragment) }
-        binding.launchNewSoldierScreen.setOnClickListener { findNavController().navigate(R.id.action_roleFragment_to_newSoldierFragment) }
+//        binding.skipAccountSetup.setOnClickListener { findNavController().navigate(R.id.action_roleFragment_to_tabsFragment) }
+//        binding.launchNewSoldierScreen.setOnClickListener { findNavController().navigate(R.id.action_roleFragment_to_newSoldierFragment) }
 
         return binding.root
     }

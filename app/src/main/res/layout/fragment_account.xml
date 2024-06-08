@@ -4,57 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.duty_timer.screens.account.AccountFragment">
+    tools:context="com.example.duty_timer.screens.account.AccountFragment"
+    android:background="@color/white">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/goBackAccountButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        android:padding="20dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/go_back_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/accountSplitLine"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/dark_brown"
+        app:layout_constraintEnd_toEndOf="@id/accountTitle"
+        app:layout_constraintStart_toStartOf="@+id/accountTitle"
+        app:layout_constraintTop_toBottomOf="@id/accountTitle" />
+
+    <TextView
+        android:id="@+id/accountTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/benzin_extrabold"
+        android:text="Редактирование профиля"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goBackAccountButton" />
 
     <TextView
         android:id="@+id/nameTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/montserrat_medium"
         android:text="Account"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@id/nicknameTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/accountTitle"
+        app:layout_constraintStart_toStartOf="@+id/accountTitle"
+        app:layout_constraintTop_toBottomOf="@+id/accountSplitLine" />
 
     <TextView
         android:id="@+id/nicknameTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Account"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@id/emailTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/nameTextView"
+        app:layout_constraintStart_toStartOf="@+id/nameTextView"
         app:layout_constraintTop_toBottomOf="@id/nameTextView" />
 
     <TextView
         android:id="@+id/emailTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Account"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@id/roleTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/nicknameTextView"
+        app:layout_constraintStart_toStartOf="@+id/nicknameTextView"
         app:layout_constraintTop_toBottomOf="@id/nicknameTextView" />
 
     <TextView
         android:id="@+id/roleTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Account"
         android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emailTextView"
-        app:layout_constraintBottom_toBottomOf="@id/logout" />
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/emailTextView"
+        app:layout_constraintStart_toStartOf="@+id/emailTextView"
+        app:layout_constraintTop_toBottomOf="@id/emailTextView" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/logout"
+        android:background="@drawable/thick_button_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Logout"
+        android:text="Выйти из аккаунта"
+        android:textColor="@color/bone"
+        android:padding="10dp"
+        android:fontFamily="@font/benzin_extrabold"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/roleTextView"
@@ -71,15 +110,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5"
         android:visibility="invisible"/>
-
-    <SeekBarPreference
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:defaultValue="5"
-        app:key="seekbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:max="20"
-        app:title="My seek bar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

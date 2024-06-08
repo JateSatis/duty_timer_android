@@ -25,6 +25,10 @@ object Singletons {
         RepositoriesProvider.timerRepository
     }
 
+    val eventsRepository by lazy {
+        RepositoriesProvider.eventsRepository
+    }
+
     // --- app settings
 
     val appSettings: AppSettings by lazy {

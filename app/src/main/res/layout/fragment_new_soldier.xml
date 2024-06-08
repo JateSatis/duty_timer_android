@@ -10,29 +10,116 @@
         android:id="@+id/newSoldierTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New soldier"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Добавление солдата"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:fontFamily="@font/benzin_extrabold"
+        android:layout_marginTop="75dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <View
+        android:id="@+id/newSoldierSplitLine"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/dark_brown"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/newSoldierTitle"
+        app:layout_constraintEnd_toEndOf="@id/newSoldierTitle"
+        app:layout_constraintTop_toBottomOf="@id/newSoldierTitle" />
+
+    <FrameLayout
+        android:id="@+id/newSoldierTimeSelectBackground"
+        android:layout_width="330dp"
+        android:layout_height="130dp"
+        android:background="@drawable/edit_text_background"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newSoldierSplitLine" />
+
+    <TextView
+        android:id="@+id/newSoldierStartTimeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Дата призыва"
+        android:textSize="17dp"
+        android:textColor="@color/opaque_black"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="14dp"
+        app:layout_constraintTop_toTopOf="@id/newSoldierTimeSelectBackground"
+        app:layout_constraintStart_toStartOf="@id/newSoldierTimeSelectBackground"/>
+
+    <TextView
+        android:id="@+id/newSoldierStartTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColor="@color/opaque_black"
+        android:text="Start time"
+        android:textSize="17sp"
+        android:layout_marginEnd="14dp"
+        app:layout_constraintEnd_toEndOf="@+id/newSoldierTimeSelectBackground"
+        app:layout_constraintTop_toTopOf="@+id/newSoldierStartTimeTitle" />
+
+    <View
+        android:id="@+id/newSoldierDateSelectSplitLineTop"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="14dp"
+        android:background="@color/dark_brown"
+        app:layout_constraintEnd_toEndOf="@+id/newSoldierStartTime"
+        app:layout_constraintStart_toStartOf="@+id/newSoldierStartTimeTitle"
+        app:layout_constraintTop_toBottomOf="@+id/newSoldierStartTimeTitle" />
+
+    <TextView
+        android:id="@+id/newSoldierEndTimeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:text="Дата дембеля"
+        android:textColor="@color/opaque_black"
+        android:layout_marginBottom="40dp"
+        android:layout_marginStart="14dp"
+        app:layout_constraintBottom_toBottomOf="@id/newSoldierTimeSelectBackground"
+        app:layout_constraintStart_toStartOf="@id/newSoldierTimeSelectBackground"/>
+
+    <TextView
+        android:id="@+id/newSoldierEndTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColor="@color/opaque_black"
+        android:text="End time"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/newSoldierStartTime"
+        app:layout_constraintTop_toTopOf="@+id/newSoldierEndTimeTitle" />
+
+    <View
+        android:id="@+id/newSoldierDateSelectSplitLineBottom"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="14dp"
+        android:background="@color/dark_brown"
+        app:layout_constraintEnd_toEndOf="@+id/newSoldierEndTime"
+        app:layout_constraintStart_toStartOf="@+id/newSoldierEndTimeTitle"
+        app:layout_constraintTop_toBottomOf="@+id/newSoldierEndTimeTitle" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/thick_button_background"
+        android:textColor="@color/bone"
+        android:fontFamily="@font/benzin_extrabold"
         android:id="@+id/launchSignUpScreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save changes"
+        android:layout_marginTop="70dp"
+        android:padding="10dp"
+        android:text="Сохранить"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newSoldierTitle" />
-
-    <Button
-        android:id="@+id/goBackToRoleScreen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/launchSignUpScreen" />
+        app:layout_constraintTop_toBottomOf="@+id/newSoldierTimeSelectBackground" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

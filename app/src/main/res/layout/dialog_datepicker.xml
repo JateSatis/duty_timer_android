@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:datePickerMode="spinner"
+        android:calendarViewShown="false">
+    </DatePicker>
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/thick_button_background"
+        android:fontFamily="@font/benzin_extrabold"
+        android:textColor="@color/bone"
+        android:id="@+id/datePickerSaveButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Сохранить"/>
+</LinearLayout>
+
+<!--
+На всякий случай double date picker
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/startDateTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Начало службы"
+        android:layout_marginBottom="10dp"
+        android:textSize="20sp"/>
+    <DatePicker
+        android:id="@+id/startDatePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:datePickerMode="spinner"
+        android:calendarViewShown="false">
+    </DatePicker>
+    <TextView
+        android:id="@+id/endDateTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Конец службы"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20sp"/>
+    <DatePicker
+        android:id="@+id/endDatePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:datePickerMode="spinner"
+        android:calendarViewShown="false">
+    </DatePicker>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/datePickerSaveButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Сохранить"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>
+
+-->

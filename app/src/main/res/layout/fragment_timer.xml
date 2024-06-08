@@ -4,49 +4,186 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/timer_background"
     tools:context="com.example.duty_timer.screens.timer.TimerFragment">
 
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/launchEditTimerScreen"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edit_text_background"
+        android:src="@drawable/edit_timer_icon"
+        android:text="Account"
+        app:layout_constraintStart_toStartOf="@+id/timerGuidelineLeft"
+        app:layout_constraintTop_toTopOf="@+id/launchAccountScreen" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/launchAccountScreen"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/thick_button_background"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/account_icon"
+        android:text="Account"
+        app:layout_constraintEnd_toStartOf="@+id/timerGuidelineRight"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/timerProgressBarbackground"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edit_text_background"
+        app:layout_constraintEnd_toStartOf="@+id/timerGuidelineRight"
+        app:layout_constraintStart_toStartOf="@+id/timerGuidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/launchAccountScreen" />
+
+    <View
+        android:id="@+id/timerProgressForeground"
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/thick_button_background"
+        app:layout_constraintStart_toStartOf="@+id/timerGuidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/launchAccountScreen" />
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/timerValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/benzin_extrabold"
         android:text="Timer"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAllCaps="true"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/timerProgressBarbackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/timerProgressBarbackground" />
 
     <Button
         android:id="@+id/launchAddFriendScreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add friend"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/timerValue" />
 
     <Button
         android:id="@+id/launchSettingsScreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Settings"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/launchAddFriendScreen" />
 
-    <Button
-        android:id="@+id/launchAccountScreen"
+    <FrameLayout
+        android:id="@+id/timeCounterBackgroundRed"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:background="@drawable/thick_button_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/timerGuidelineRight"
+        app:layout_constraintStart_toStartOf="@+id/timerGuidelineLeft"
+        android:layout_marginBottom="110dp"/>
+
+    <FrameLayout
+        android:id="@+id/timeCounterBackgroundWhite"
+        android:layout_width="0dp"
+        android:layout_height="190dp"
+        android:background="@drawable/edit_text_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/timerGuidelineRight"
+        app:layout_constraintStart_toStartOf="@+id/timerGuidelineLeft"
+        android:layout_marginBottom="110dp"/>
+
+    <TextView
+        android:id="@+id/timeSpentTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Account"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/benzin_extrabold"
+        android:text="Прошло"
+        android:textColor="@color/dark_brown"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toStartOf="@+id/splitBetweenSpentAndLeft"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/timeCounterBackgroundWhite" />
+
+    <TextView
+        android:id="@+id/timeSpentValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Дней"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/dark_brown"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/timeSpentTitle"
+        app:layout_constraintStart_toStartOf="@+id/timeSpentTitle"
+        app:layout_constraintTop_toBottomOf="@+id/timeSpentTitle" />
+
+    <View
+        android:id="@+id/splitBetweenSpentAndLeft"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="@color/dark_brown"
+        android:layout_marginVertical="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/timeCounterBackgroundWhite"
+        app:layout_constraintEnd_toStartOf="@+id/timeLeftTitle"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/timeSpentTitle"
+        app:layout_constraintTop_toTopOf="@+id/timeCounterBackgroundWhite" />
+
+    <TextView
+        android:id="@+id/timeLeftValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Дней"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/dark_brown"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/timeLeftTitle"
+        app:layout_constraintStart_toStartOf="@+id/timeLeftTitle"
+        app:layout_constraintTop_toBottomOf="@+id/timeLeftTitle" />
+
+    <TextView
+        android:id="@+id/timeLeftTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/benzin_extrabold"
+        android:text="Осталось"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/dark_brown"
+        android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/launchSettingsScreen" />
+        app:layout_constraintStart_toEndOf="@+id/splitBetweenSpentAndLeft"
+        app:layout_constraintTop_toTopOf="@+id/timeCounterBackgroundWhite" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/timerGuidelineLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="25dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/timerGuidelineRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="25dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

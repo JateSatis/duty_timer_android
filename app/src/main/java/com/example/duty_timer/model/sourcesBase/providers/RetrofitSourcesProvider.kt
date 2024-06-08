@@ -5,6 +5,7 @@ import com.example.duty_timer.model.userInfo.RetrofitUserInfoSource
 import com.example.duty_timer.model.userInfo.UserInfoSource
 import com.example.duty_timer.model.auth.AuthSource
 import com.example.duty_timer.model.auth.RetrofitAuthSource
+import com.example.duty_timer.model.events.RetrofitEventsSource
 import com.example.duty_timer.model.sourcesBase.RetrofitConfig
 import com.example.duty_timer.model.timer.RetrofitTimerSource
 import com.example.duty_timer.model.timer.TimerSource
@@ -33,6 +34,9 @@ object RetrofitSourcesProvider : SourcesProvider {
     }
     override val timerSource by lazy {
         RetrofitTimerSource(config)
+    }
+    override val eventsSource by lazy {
+        RetrofitEventsSource(config)
     }
 
     private fun createRetrofit(moshi: Moshi): Retrofit {

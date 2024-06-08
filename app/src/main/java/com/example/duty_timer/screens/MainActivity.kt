@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         sharedPreferencesSavedAuth = SharedPreferencesAppSettings(applicationContext)
 
         if (isSignedIn()) {
-            navController.navigate(R.id.action_roleFragment_to_tabsFragment)
+            navController.navigate(R.id.tabsFragment)
         }
 
     }
